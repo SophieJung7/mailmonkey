@@ -1,7 +1,12 @@
 import React from "react";
+import Jumbo from "./Jumbo";
 
 const Landing = () => {
-  return <div style={{ textAlign: "center" }}>Do survey anywhere!</div>;
+  return (
+    <div>
+      <Jumbo />
+    </div>
+  );
 };
 
 export default Landing;

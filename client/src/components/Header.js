@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import { LinkContainer } from "react-router-bootstrap";
+import Payment from "./Payment";
 
 class Header extends Component {
   renderLogin() {
@@ -9,32 +13,50 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li>
-            <a href="/auth/google">Login With Google</a>
-          </li>
+          <Nav.Link className="nav-link" href="/auth/google">
+            Login With Google
+          </Nav.Link>
         );
       default:
         return (
-          <li>
-            <a href="/api/logout">Logout</a>
-          </li>
+          <div>
+            <Payment />
+            <Nav.Link className="nav-link d-inline ml-3">
+              CREDITS: {this.props.auth.credits}
+            </Nav.Link>
+            <Nav.Link className="nav-link d-inline ml-3" href="/api/logout">
+              SIGN OUT
+            </Nav.Link>
+          </div>
         );
     }
   }
 
   render() {
     return (
-      <nav>
-        <div className="container nav-wrapper">
-          <Link
-            to={this.props.auth ? "/surveys" : "/"}
-            className="left brand-logo"
+      <div>
+        <div>
+          <Navbar
+            expand="lg"
+            className="navbar navbar-expand-lg navbar-dark navbar-custom navbar-fixed-top"
           >
-            SurveyMonkey
-          </Link>
-          <ul className="right">{this.renderLogin()}</ul>
+            <Container>
+              <LinkContainer to={this.props.auth ? "/surveys" : "/"}>
+                <Navbar.Brand className="navbar-brand">
+                  Survey Monkey
+                </Navbar.Brand>
+              </LinkContainer>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse
+                id="basic-navbar-nav"
+                className="collapse navbar-collapse"
+              >
+                <Nav className="navbar-nav ml-auto">{this.renderLogin()}</Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
         </div>
-      </nav>
+      </div>
     );
   }
 }
