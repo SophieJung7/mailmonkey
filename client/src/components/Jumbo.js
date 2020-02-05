@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import "../css/custom.css";
 
 const Jumbo = () => {
@@ -11,7 +11,7 @@ const Jumbo = () => {
         Get the feedback you need with a global leader in survey software.
       </p>
       <p>
-        <Button className="jumbo-button">Get started</Button>
+        <Link to="/surveys/new" className="jumbo-button btn btn-primary">Get started</Link>
       </p>
     </Jumbotron>
   );

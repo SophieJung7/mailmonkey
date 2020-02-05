@@ -18,11 +18,15 @@ export const handleStripeToken = token => async dispatch => {
     });
 };
 
-export const submitSurvey = values => async dispatch => {
-    const res = await axios.post("/api/surveys", values);
-    dispatch({
-        type: SUBMIT_SURVEY,
-        payload: res.data
-    });
-    history.push("/api/surveys/thanks");
+// export const submitSurvey = values => async dispatch => {
+//     const res = await axios.post("/api/surveys", values);
+//     dispatch({
+//         type: SUBMIT_SURVEY,
+//         payload: res.data
+//     });
+//     history.push("/api/surveys/thanks");
+// };
+
+export const submitSurvey = values => {
+    return { type: "submit_survey" };
 };
