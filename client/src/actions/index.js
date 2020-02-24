@@ -26,3 +26,4 @@ export const submitSurvey = values => async dispatch => {
     });
     history.push("/surveys");
 };
+

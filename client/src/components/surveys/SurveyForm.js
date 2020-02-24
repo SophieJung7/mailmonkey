@@ -24,7 +24,7 @@ class SurveyForm extends Component {
                         <Link to="/surveys" className="btn btn-dark rounded-0 px-5">
                             Cancel
                         </Link>
-                        <button type="submit" className="btn btn-primary rounded-0 px-5">Next  <IoIosArrowForward /></button>
+                        <button type="submit" className="btn btn-primary rounded-0 px-5" id="mc-embedded-subscribe">Next  <IoIosArrowForward /></button>
                     </div>
                 </form>
             </div>
@@ -50,4 +50,4 @@ export default reduxForm({
     validate: validate,
     form: 'surveyForm',
     destroyOnUnmount: false
-})(SurveyForm);
+})(SurveyForm);;
