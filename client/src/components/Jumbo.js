@@ -1,17 +1,19 @@
-import React from "react";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
-import "../css/custom.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import '../css/custom.css';
 
 const Jumbo = () => {
   return (
-    <Jumbotron className="jumbo">
-      <h1 className="jumbo-bigFont">Get the answers you need</h1>
-      <p className="jumbo-smallFont">
+    <Jumbotron className='jumbo'>
+      <h1 className='jumbo-bigFont'>Get the answers you need</h1>
+      <p className='jumbo-smallFont'>
         Get the feedback you need with a global leader in survey software.
       </p>
-      <p>
-        <Button className="jumbo-button">Get started</Button>
+      <p className='mt-5'>
+        <Link to='/signin' className='orange-button'>
+          Get started
+        </Link>
       </p>
     </Jumbotron>
   );

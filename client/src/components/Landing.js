@@ -1,7 +1,16 @@
-import React from "react";
-import Jumbo from "./Jumbo";
+import React from 'react';
+import { connect } from 'react-redux';
+import Jumbo from './Jumbo';
+import Dashboard from './Dashboard';
 
-const Landing = () => {
+const Landing = ({ auth }) => {
+  if (auth) {
+    return (
+      <div>
+        <Dashboard />
+      </div>
+    );
+  }
   return (
     <div>
       <Jumbo />
@@ -9,4 +18,8 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = state => {
+  return { auth: state.auth };
+};
+
+export default connect(mapStateToProps)(Landing);
